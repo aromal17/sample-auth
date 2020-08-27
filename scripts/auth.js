@@ -13,7 +13,15 @@ signupForm.addEventListener('submit' , (e) => {
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
         signupForm.reset();
+    });
+});
 
-    })  
+//logout
+const logout = document.querySelector("#logout");
+logout.addEventListener(('click'), (e) =>{
+    e.preventDefault();
+    auth.signOut().then(() =>{
 
-})
+    });
+
+});
