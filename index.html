@@ -119,7 +119,39 @@
       </li>
     </ul>
   </div>
+
+  <!-- Configuration for firebase starts -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+  <!-- for providing authntication -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>  
+  <!-- for providing database firestore         -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>       
   
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpTlznAFm7GLiViokLCjgbRhDkkDbO5jg",
+      authDomain: "sample-auth-17.firebaseapp.com",
+      databaseURL: "https://sample-auth-17.firebaseio.com",
+      projectId: "sample-auth-17",
+      storageBucket: "sample-auth-17.appspot.com",
+      messagingSenderId: "215718180499",
+      appId: "1:215718180499:web:04370baaa4fb908950ff66",
+      measurementId: "G-DCRYB4PGQB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+
+    // making auth and firestore db references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    //upadting firestore setting
+    db.settings({timestampsInSnapshots: true});
+
+    // <!-- Configuration for firebase ends -->
+  </script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/auth.js"></script>
