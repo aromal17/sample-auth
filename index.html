@@ -122,9 +122,9 @@
 
   <!-- Configuration for firebase starts -->
   <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
-  <!-- for providing authntication -->
+  <!-- for providing authntication  (manually added)-->
   <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>  
-  <!-- for providing database firestore         -->
+  <!-- for providing database firestore  (manually added)       -->
   <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>       
   
   <script>
@@ -144,11 +144,12 @@
     
 
     // making auth and firestore db references
+    //sets up fucntionalities off auth function
     const auth = firebase.auth();
     const db = firebase.firestore();
 
     //upadting firestore setting
-    db.settings({timestampsInSnapshots: true});
+    // db.settings({timestampsInSnapshots: true});
 
     // <!-- Configuration for firebase ends -->
   </script>
