@@ -1,3 +1,15 @@
+//auth state changes tracking
+auth.onAuthStateChanged(user => {
+    if(user){
+        console.log("user logged in through state change")
+    }
+    else{
+        console.log("logged out through state change")
+    }
+
+});
+
+
 // signup
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit' , (e) => {
@@ -19,12 +31,14 @@ signupForm.addEventListener('submit' , (e) => {
     });
 });
 
+
+
 //logout
 const logout = document.querySelector("#logout");
 logout.addEventListener(('click'), (e) =>{
     e.preventDefault();
     auth.signOut().then(() =>{
-        console.log("user logged out");
+        // console.log("user logged out");
     });
 
 });
@@ -39,7 +53,7 @@ loginForm.addEventListener('submit' , (e)=>{
     const password = loginForm['login-password'].value;
 
     auth.signInWithEmailAndPassword(email,password).then(cred =>{
-        console.log("user logged in");
+        // console.log("user logged in");
 
         const modal = document.querySelector('#modal-login');
         M.Modal.getInstance(modal).close();
