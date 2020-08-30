@@ -5,14 +5,35 @@ auth.onAuthStateChanged(user => {
         console.log("user is logged in");
         db.collection('guides').get().then(snapshot => {
             setUpGuides(snapshot.docs);
+            setupUI(user);
      });
     
     }
     else{
         console.log("logged out through state change")
+        setupUI();
         setUpGuides([]);
     }
 
+});
+
+
+//adding data to firestore 
+const createForm = document.querySelector('#create-form');
+
+createForm.addEventListener('submit' , (e) => {
+    e.preventDefault();
+
+    db.collection('guides').add({
+        title: createForm['title'].value,
+        content: createForm['content'].value
+    }).then(() =>{
+        const modal = document.querySelector('#modal-create');
+        M.Modal.getInstance(modal).close();
+        createForm.reset();
+    }).catch(err => {
+        console.log(err.message);
+    });
 });
 
 

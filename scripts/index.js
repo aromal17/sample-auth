@@ -1,4 +1,22 @@
 const guidelist = document.querySelector(".guides");
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in');
+
+
+
+//function deciding which all kinks to be shown when the user is logged in and when the user is logged out
+const setupUI = (user) => {
+  if(user){
+    loggedOutLinks.forEach(item => item.style.display = 'none');
+    loggedInLinks.forEach(item => item.style.display = 'block');
+  }
+  else{
+    loggedOutLinks.forEach(item => item.style.display = 'block');
+    loggedInLinks.forEach(item => item.style.display = 'none');
+  }
+}
+
+
 
 //in  the below function data is received in the form of an array and each items in the array is accessed using the for each method
 const setUpGuides = (data) => {
