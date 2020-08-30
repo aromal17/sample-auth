@@ -1,10 +1,16 @@
+
 //auth state changes tracking
 auth.onAuthStateChanged(user => {
     if(user){
-        console.log("user logged in through state change")
+        console.log("user is logged in");
+        db.collection('guides').get().then(snapshot => {
+            setUpGuides(snapshot.docs);
+     });
+    
     }
     else{
         console.log("logged out through state change")
+        setUpGuides([]);
     }
 
 });
